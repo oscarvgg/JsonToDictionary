@@ -9,7 +9,20 @@
 
 @interface JsonToDictionary : NSObject
 
-+ (NSDictionary *)diccionaryFromJsonString:(NSString *)stringJson;
++ (NSDictionary *)dictionaryFromJsonString:(NSString *)stringJson;
 + (NSString *)jsonStringFromDictionary:(NSDictionary *)dictionary;
 
 @end
+
+@interface NSDictionary (Json)
+
+- (NSString *)jsonString;
+
+@end
+
+@interface NSString (Json)
+
+- (NSDictionary *)jsonDictionary;
+
+@end
+
