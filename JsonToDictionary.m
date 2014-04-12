@@ -9,7 +9,7 @@
 
 @implementation JsonToDictionary
 
-+ (NSDictionary *)diccionaryFromJsonString:(NSString *)stringJson
++ (NSDictionary *)dictionaryFromJsonString:(NSString *)stringJson
 {
     NSData *data = [stringJson dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -47,3 +47,17 @@
 }
 
 @end
+
+@implementation NSDictionary (Additions)
+
+- (NSString *)jsonString {
+    return [JsonToDictionary jsonStringFromDictionary:self];
+}
+
+@end
+
+@implementation NSString (Additions)
+
+- (NSDictionary *)jsonDictionary {
+    return [JsonToDictionary dictionaryFromJsonString:self];
+}
